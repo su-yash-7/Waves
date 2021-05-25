@@ -24,16 +24,20 @@ const Player = ({currentSong,isPlaying,setIsPlaying}) =>{
             Math.floor(time / 60) +  ":" + ("0" + Math.floor(time % 60)).slice(-2) 
         )
     }
+    const dradHandeler = (e) =>{
+        audioRef.current.currentTime = e.target.value;
+        setSongInfo({...songInfo, currentTime: e.target.value})
+    };
     const [songInfo,setSongInfo] = useState({
-        currentTime: null,
-        duration: null
+        currentTime: 0,
+        duration: 0
 
     });
     return(
         <div className="player">
             <div className="time-control">
                 <p>{getTime(songInfo.currentTime)}</p>
-                <input type="range" />
+                <input min={0} max={songInfo.duration} value={songInfo.currentTime} onChange={dradHandeler} type="range" />
                 <p>{getTime(songInfo.duration)}</p>
             </div>
             <div className="play-control">
