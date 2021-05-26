@@ -1,6 +1,6 @@
 # Waves
 
-See this priject [Live](https://waves-iamsuyash.vercel.app/).
+See this project [Live](https://waves-iamsuyash.vercel.app/).
 
 Install dependencies
 
